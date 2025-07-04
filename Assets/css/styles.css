@@ -413,6 +413,10 @@ section {
         transition: right 1s ease; /* Typo diperbaiki: transitsion → transition */
         z-index: 1000;
     }
+
+    .nav__logo p{
+        font-size:1rem;
+    }
     
     .nav__menu.show-menu {
         right: 0;
