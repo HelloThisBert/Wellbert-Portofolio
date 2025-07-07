@@ -65,8 +65,8 @@ section {
 }
 
 .nav__logo img {
-    width: 40px;
-    height: 40px;
+    width: 24px;
+    height: 24px;
 }
 
 .nav__logo p {
@@ -80,7 +80,7 @@ section {
 .nav__menu {
     display: flex;
     align-items: center;
-    gap: 2rem;
+    gap: 2.5rem;
     color: #fff;
 }
 .nav__menu a:focus {
@@ -182,10 +182,6 @@ section {
     outline: none !important;
 }
 
-
-
-
-
  /* =================================
    ABOUT SECTION STYLES (Start)
 ================================= */
@@ -205,11 +201,11 @@ section {
     flex-direction: row;
     align-items: center;
     justify-content: flex-start;
-    width: 92%;
-    max-width: 1300px;
+    width: 100%;
+    max-width: 1200px;
     margin: 0 auto;
     gap: 4rem;
-    padding: 10% 4rem 10% 6rem;
+    padding: 10% 2rem 10% 2rem;
     box-sizing: border-box;
 }
 
@@ -223,21 +219,21 @@ section {
 }
 
 .about-text h1 {
-    font-size: 2rem;
+    font-size: 2.5rem;
     font-weight: 200;
     letter-spacing: 0.05em;
 }
 .about-text h2 {
-    font-size: 4rem;
+    font-size: 5rem;
     font-weight: 600;
 }
 .about-text h3 {
-    font-size: 3rem;
+    font-size: 4rem;
     font-weight: 200;
     margin-bottom:1rem;
 }
 .about-text p {
-    font-size: 1rem;
+    font-size: 1.2rem;
     line-height: 1.7;
     color: #ccc;
 }
@@ -285,14 +281,24 @@ section {
 
 }
 
-#skill h1 {
+.skill-text h1 {
   font-size: clamp(2rem, 3vw, 4.5rem); /* kamu bisa ubah 1.5 jika terlalu kecil */
-  margin-bottom:1.5rem;
+  margin-bottom:0;
   padding-top:2%;
   line-height: 1.5;
   letter-spacing:1.5px;
   Font-weight:00;
 }
+.skill-text p {
+  max-width:800px;
+  font-size: clamp(1.2rem, 1vw, 2rem); /* kamu bisa ubah 1.5 jika terlalu kecil */
+  margin: 0.5rem auto;
+  padding: 0 20px;
+  line-height: 1.5;
+  letter-spacing:1.5px;
+  Font-weight:200;
+}
+
 
 .skill-container{
     max-width:1220px;
@@ -385,9 +391,62 @@ section {
 
 
 
+/* =================================
+  FOOTER (START)
+================================= */
+.footer {
+  background-color: #0f0f0f;
+  color: white;
+  padding: 2rem 4%;
+}
 
+.footer-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
 
+.footer-left {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
 
+.footer-logo {
+  width: 40px;
+  height: 40px;
+}
+
+.footer-title h1 {
+  font-size: 1.1rem;
+  margin: 0;
+}
+
+.footer-title h2 {
+  font-size: 1.1rem;
+  margin: 0;
+}
+
+.footer-right {
+  display: flex;
+  gap: 1.2rem;
+}
+
+.footer-right a {
+  color: white;
+  font-size: 1.5rem;
+  transition: color 0.3s ease;
+  text-decoration:none;
+}
+
+.footer-right a:hover {
+  color: #ff3f;
+}
+
+/* =================================
+  FOOTER (END)
+================================= */
 
 
 
@@ -446,11 +505,14 @@ section {
     max-width: 400px;
     width: 100%;
   }
+  .about-text h1 {
+    font-size: 2rem;
+  }
   .about-text h2 {
-    font-size: 2.5rem;
+    font-size: 4rem;
   }
   .about-text h3 {
-    font-size: 1.5rem;
+    font-size: 1.8rem;
   }
     .about-text p {
         font-size: 0.9rem;
@@ -490,7 +552,7 @@ section {
     /* About Section - Keep Original */
     .about-container {
         flex-direction: column;
-        gap: 2rem;
+        gap: 1.5rem;
         padding: 1rem 2rem;
     }
     
@@ -600,15 +662,82 @@ section {
     -moz-user-select: none;
     -ms-user-select: none;
     }
+     .about-text h1 {
+        font-size: 1.5remrem;
+    }
+    
+    .about-text h2 {
+        font-size:3rem;
+    }
+    
+    .about-text h3 {
+        font-size: 1.5rem;
+    }
+    
+    .about-text p {
+        font-size: 1.1remrem;
+    }
     .skills-container {
     grid-template-columns: 1fr;
+  }
+    .footer-logo {
+    width: 40px;
+  }
+
+  .footer-title h1 {
+    font-size: 1rem;
+  }
+
+  .footer-title h2 {
+    font-size: 0.95rem;
+  }
+
+  .footer-right a {
+    font-size: 1.3rem;
   }
 }
 
 @media screen and (max-width: 500px) {
+    .nav__logo img {
+    width: 24px;
+    height: 24px;
+    }
+     .about-text h2 {
+        font-size: 2.2rem;
+    }
     #skill{
         padding-top:20%;
         margin-top:15%
     }
+    .skill-text h1{
+    font-size:1.4rem;
+    margin:10px 10px;
+    }
+    .skill-text p{
+    font-size:0.8rem;
+    margin:10px 50px;
+    }
+
+    .footer {
+    padding: 1.2rem 2rem;
+    }
+
+  .footer-logo {
+    width: 24px;
+    height:24px
+    }
+
+  .footer-title h1 {
+    font-size: 0.8rem;
+    }
+
+  .footer-title h2 {
+    font-size: 0.8rem;
+     }
+
+  .footer-right a {
+    font-size: 1.2rem;
+    }
 }
+
 
