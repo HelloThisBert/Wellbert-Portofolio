@@ -80,7 +80,7 @@ section {
 .nav__menu {
     display: flex;
     align-items: center;
-    gap: 2.5rem;
+    gap: 2rem;
     color: #fff;
 }
 .nav__menu a:focus {
@@ -91,8 +91,8 @@ section {
 .nav__list {
     list-style: none;
     display: flex;
-    gap: 2.5rem;
-    margin-right:1rem;
+    gap: 2rem;
+    margin-right:0.5rem;
 }
 
 .nav__item p, .ri-arrow-right-up-line{
@@ -120,7 +120,7 @@ section {
     bottom: -4px;
     width: 100%;
     height: 2px;
-    background: #ff2f;
+    background:  linear-gradient(45deg, #667eea, #764ba2, #b06ab3);
     transform: scaleX(0);
     transform-origin: left;
     transition: transform 0.3s cubic-bezier(0.4,0,0.2,1);
@@ -147,8 +147,11 @@ section {
 
 .nav__social-link:hover,
 .nav__social-link:focus {
-    color: #ff2f;
-    transition: color 0.3s;
+    background: linear-gradient(45deg, #667eea, #764ba2, #b06ab3);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent; /* Keep color transparent for the gradient to show */
 }
 /* Close and Toggle icons */
 .nav__close,
@@ -188,6 +191,7 @@ section {
 
 .about {
     position: relative;
+    max-width:1440px;
     width: 100%;
     height: 100vh;
     display: flex;
@@ -205,7 +209,7 @@ section {
     max-width: 1200px;
     margin: 0 auto;
     gap: 4rem;
-    padding: 10% 2rem 10% 2rem;
+    padding: 10% 0;
     box-sizing: border-box;
 }
 
@@ -301,7 +305,7 @@ section {
 
 
 .skill-container{
-    max-width:1220px;
+    max-width:1440px;
     margin: 1rem auto;
     padding:1rem 1rem;
     display:grid;
@@ -389,6 +393,63 @@ section {
   Marquee(end)
 ================================= */
 
+/* =================================
+  Contact(Start)
+================================= */
+
+/* CONTACT SECTION */
+#contact {
+  background-color: #0f0f0f;
+  padding: 8% 1rem;
+  text-align: center;
+  color: #ffffff;
+  font-family: 'Poppins', sans-serif;
+}
+
+.contact-container {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.contact-container h2 {
+  font-size: clamp(2rem, 5vw, 6rem);
+  font-weight: 700;
+  margin-bottom: 1rem;
+  color: #ffffff;
+}
+
+.contact-container p {
+  font-size: clamp(1rem, 2vw, 1.5rem);
+  color: #b0b0b0;
+  margin-bottom: 2rem;
+  line-height: 1.6;
+}
+
+.btn-hire {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: linear-gradient(to right, #7f00ff, #e100ff);
+  color: #ffffff;
+  padding: 0.75rem 1.5rem;
+  border-radius: 30px;
+  text-decoration: none;
+  font-size: 1.2rem;;
+  box-shadow: 0 10px 30px rgba(113, 66, 255, 0.4);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.btn-hire:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 36px rgba(113, 66, 255, 0.6);
+}
+
+.btn-hire .icon {
+  font-size: 1.2rem;
+}
+/* =================================
+  Contact(END)
+================================= */
 
 
 /* =================================
@@ -484,17 +545,13 @@ section {
 
 
 
-
-
-
-
-
-
-
 /* =================================
    MEDIA QUERIES (Start)
 ================================= */
 @media (max-width: 1024px) {
+  .about-container{
+    padding: 10% 1rem;
+  }
   .about-img {
     min-width: 350px;
     flex: 1;
@@ -695,7 +752,10 @@ section {
   .footer-right a {
     font-size: 1.3rem;
   }
-}
+
+
+
+
 
 @media screen and (max-width: 500px) {
     .nav__logo img {
@@ -717,7 +777,6 @@ section {
     font-size:0.8rem;
     margin:10px 50px;
     }
-
     .footer {
     padding: 1.2rem 2rem;
     }
@@ -739,5 +798,7 @@ section {
     font-size: 1.2rem;
     }
 }
+
+
 
 
