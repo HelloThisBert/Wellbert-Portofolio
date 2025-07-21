@@ -86,3 +86,193 @@ document.addEventListener('click', (e) => {
         document.body.classList.remove('menu-open');
     }
 });
+
+        gsap.registerPlugin(ScrollTrigger);
+
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('🚀 Portfolio Animation Started');
+
+            // Get all elements
+            const projectRows = document.querySelectorAll('.project-row');
+            const projectContents = document.querySelectorAll('.project-content');
+            const projectImages = document.querySelectorAll('.project-image');
+            const techItems = document.querySelectorAll('.tech-item');
+            const visitButtons = document.querySelectorAll('.visit-button');
+
+            // Initialize elements
+            function initializeElements() {
+                console.log('🎬 Initializing elements...');
+
+                // Set initial states
+                gsap.set(projectContents, { 
+                    opacity: 0, 
+                    x: -50 
+                });
+
+                gsap.set(projectImages, { 
+                    opacity: 0, 
+                    x: 50 
+                });
+
+                gsap.set(techItems, { 
+                    opacity: 0, 
+                    y: 30 
+                });
+
+                gsap.set(visitButtons, { 
+                    opacity: 0, 
+                    y: 20 
+                });
+            }
+
+            // Create animations for each project row
+            projectRows.forEach((row, index) => {
+                const content = row.querySelector('.project-content');
+                const image = row.querySelector('.project-image');
+                const techItemsInRow = row.querySelectorAll('.tech-item');
+                const visitButtonInRow = row.querySelector('.visit-button');
+
+                // Create timeline for each row
+                const tl = gsap.timeline({
+                    scrollTrigger: {
+                        trigger: row,
+                        start: "top 80%",
+                        end: "bottom 20%",
+                        toggleActions: "play none none reverse"
+                    }
+                });
+
+                // Animate content and image simultaneously
+                tl.to(content, {
+                    opacity: 1,
+                    x: 0,
+                    duration: 0.8,
+                    ease: "power2.out"
+                })
+                .to(image, {
+                    opacity: 1,
+                    x: 0,
+                    duration: 0.8,
+                    ease: "power2.out"
+                }, "-=0.8")
+                .to(techItemsInRow, {
+                    opacity: 1,
+                    y: 0,
+                    duration: 0.5,
+                    stagger: 0.1,
+                    ease: "power2.out"
+                }, "-=0.4")
+                .to(visitButtonInRow, {
+                    opacity: 1,
+                    y: 0,
+                    duration: 0.6,
+                    ease: "power2.out"
+                }, "-=0.2");
+            });
+
+            // Enhanced hover animations
+            techItems.forEach(tech => {
+                tech.addEventListener('mouseenter', () => {
+                    gsap.to(tech, { 
+                        scale: 1.05, 
+                        y: -2,
+                        duration: 0.3,
+                        ease: "power2.out"
+                    });
+                });
+
+                tech.addEventListener('mouseleave', () => {
+                    gsap.to(tech, { 
+                        scale: 1, 
+                        y: 0,
+                        duration: 0.3,
+                        ease: "power2.out"
+                    });
+                });
+            });
+
+            // Visit button hover animations
+            document.querySelectorAll('.btn-visit').forEach(btn => {
+                const arrow = btn.querySelector('i');
+
+                btn.addEventListener('mouseenter', () => {
+                    gsap.to(btn, { 
+                        scale: 1.02, 
+                        y: -2,
+                        duration: 0.3 
+                    });
+                    if (arrow) {
+                        gsap.to(arrow, { 
+                            x: 4, 
+                            duration: 0.3 
+                        });
+                    }
+                });
+
+                btn.addEventListener('mouseleave', () => {
+                    gsap.to(btn, { 
+                        scale: 1, 
+                        y: 0,
+                        duration: 0.3 
+                    });
+                    if (arrow) {
+                        gsap.to(arrow, { 
+                            x: 0, 
+                            duration: 0.3 
+                        });
+                    }
+                });
+            });
+
+            // Image frame hover animations
+            document.querySelectorAll('.image-frame').forEach(frame => {
+                const mockup = frame.querySelector('.image-mockup');
+                const arrow = frame.querySelector('.frame-arrow');
+
+                frame.addEventListener('mouseenter', () => {
+                    if (mockup) {
+                        gsap.to(mockup, { 
+                            y: -5, 
+                            rotateX: 2, 
+                            duration: 0.4,
+                            ease: "power2.out"
+                        });
+                    }
+                    if (arrow) {
+                        gsap.to(arrow, { 
+                            x: 5, 
+                            scale: 1.1, 
+                            duration: 0.3 
+                        });
+                    }
+                });
+
+                frame.addEventListener('mouseleave', () => {
+                    if (mockup) {
+                        gsap.to(mockup, { 
+                            y: 0, 
+                            rotateX: 0, 
+                            duration: 0.4,
+                            ease: "power2.out"
+                        });
+                    }
+                    if (arrow) {
+                        gsap.to(arrow, { 
+                            x: 0, 
+                            scale: 1, 
+                            duration: 0.3 
+                        });
+                    }
+                });
+            });
+
+            // Initialize everything
+            initializeElements();
+
+            // Resize handler
+            window.addEventListener('resize', () => {
+                ScrollTrigger.refresh();
+            });
+
+            console.log('✅ Portfolio Animation Complete');
+        });
