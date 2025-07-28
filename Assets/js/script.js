@@ -77,7 +77,21 @@ navLinks.forEach(link => {
     });
 });
 
+const radios = document.querySelectorAll('input[name="tab"]');
+  const contents = document.querySelectorAll('.tabcontent');
 
+  radios.forEach(radio => {
+    radio.addEventListener('change', () => {
+      const value = radio.value;
+
+      contents.forEach(content => {
+        content.classList.remove('active');
+        if (content.id === value) {
+          content.classList.add('active');
+        }
+      });
+    });
+  });
 
 // Close menu when clicking outside
 document.addEventListener('click', (e) => {
@@ -232,17 +246,10 @@ document.addEventListener('click', (e) => {
                 frame.addEventListener('mouseenter', () => {
                     if (mockup) {
                         gsap.to(mockup, { 
-                            y: -5, 
-                            rotateX: 2, 
+                            y: -10, 
+                            rotateX: 10, 
                             duration: 0.4,
                             ease: "power2.out"
-                        });
-                    }
-                    if (arrow) {
-                        gsap.to(arrow, { 
-                            x: 5, 
-                            scale: 1.1, 
-                            duration: 0.3 
                         });
                     }
                 });
@@ -254,13 +261,6 @@ document.addEventListener('click', (e) => {
                             rotateX: 0, 
                             duration: 0.4,
                             ease: "power2.out"
-                        });
-                    }
-                    if (arrow) {
-                        gsap.to(arrow, { 
-                            x: 0, 
-                            scale: 1, 
-                            duration: 0.3 
                         });
                     }
                 });
